@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice 1</title>
+</head>
+<body>
+
+  <div ng-app="app">
+    <form ng-controller="formCtrl" name="myForm">
+      <label>Email:
+        <!-- Ajout d'une directive ng-model à l'input de type email et d'un required -->
+        <input type="email" name="input" ng-model="email.text" required>
+      </label>
+        <!-- Ajout de deux ng-show - un pour chaque condition -->
+        <div class="valid" ng-show="myForm.input.$valid">email valide</div>
+        <div class="error" ng-show="myForm.input.$error.email">email non valide</div>
+    </form>
+  </div>
+  <style>
+      .error {
+      width: 140px;
+      background-color: red;
+      }
+      .valid {
+      width: 140px;
+      background-color: green;
+      }
+  </style>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js'></script>
+  <script>
+  // Initialisation de app
+    var app = angular.module('app', []);
+      // injection du controller avec un texte pour modèle
+      app.controller('formCtrl', function ($scope) {
+      $scope.email = {
+      text: 'you@example.fr'
+      };
+    });
+  </script>
+</body>
+</html>
