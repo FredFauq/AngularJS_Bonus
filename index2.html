@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exercice 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+</head>
+<body ng-app="windowExample">
+  <script>
+  angular.module('windowExample', [])
+    .controller('ExampleController', ['$scope', '$window', function($scope, $window) {
+      $scope.greeting = 'Hello, World!';
+      $scope.doGreeting = function(greeting) {
+        $window.alert(greeting);
+      };
+    }]);
+</script>
+<div ng-controller="ExampleController">
+  <button ng-click="doGreeting(greeting)">ALERT</button>
+</div>
+</body>
+</html>
